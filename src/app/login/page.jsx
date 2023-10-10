@@ -4,18 +4,16 @@ import styles from "./styles.module.css";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
-  const { status } = useSession();
+  const {data, status} = useSession()
+  const router = useRouter()
 
-  const router = useRouter();
-
-  if (status === "loading") {
-    return <div className={styles.loading}>Loading...</div>;
+  if(status === "loading") {
+    return <div className={styles.loading}>Loading...</div>
   }
-
-  if (status === "authenticated") {
+  if(status === "authenticated") {
     router.push("/")
   }
-  
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>

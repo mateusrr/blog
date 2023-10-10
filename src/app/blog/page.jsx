@@ -1,8 +1,10 @@
+"use client"
+
 import CardList from "@/components/CardList/index";
 import styles from "./styles.module.css";
 import Menu from "@/components/Menu/index";
 
-const BlogPage = ({ searchParams }) => {
+const BlogPage = () => {
   // const page = parseInt(searchParams.page) || 1;
   // const { cat } = searchParams;
 
@@ -10,7 +12,7 @@ const BlogPage = ({ searchParams }) => {
     <div className={styles.container}>
       <h1 className={styles.title}> Blog</h1>
       <div className={styles.content}>
-        <CardList page={page} cat={cat}/>
+        <CardList />
         <Menu />
       </div>
     </div>
