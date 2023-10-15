@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AuthLinks from "../AuthLinks/index";
 import ThemeToggle from "../ThemeToggle/index";
-import {BsFacebook, BsInstagram, BsTiktok, BsYoutube} from "react-icons/bs"
+import {BsFacebook, BsInstagram, BsYoutube} from "react-icons/bs"
 const Navbar = () => {
   return (
     <div className={styles.container}>

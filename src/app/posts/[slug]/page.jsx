@@ -3,7 +3,8 @@ import Image from "next/image";
 import Comments from "@/components/Comments/index";
 
 const getData = async (slug) => {
-  const res = await fetch(`http://localhost:3000/api/posts/${slug}?popular=true`, {
+  if(typeof document !== "undefined") {
+    const res = await fetch(`http://localhost:3000/api/posts/${slug}?popular=true`, {
       cache: "no-store",
   })
 
@@ -11,6 +12,7 @@ const getData = async (slug) => {
       throw new Error("failed")
   }
 
+  }
   return res.json()
 }
 

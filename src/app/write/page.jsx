@@ -1,19 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
-import "react-quill/dist/quill.bubble.css";
-import { useRouter } from "next/navigation"; // Troque "next/navigation" para "next/router"
-import { useSession } from "next-auth/react";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import ReactQuill from "react-quill";
+import "react-quill/dist/quill.bubble.css";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation"; // Troque "next/navigation" para "next/router"
+import { useEffect, useState } from "react";
+import styles from "./styles.module.css";
+import Image from "next/image";
 
 const WritePage = () => {
   const { status } = useSession();
@@ -27,40 +22,42 @@ const WritePage = () => {
   const [catSlug, setCatSlug] = useState("");
 
   useEffect(() => {
-    if (typeof document !== "undefined") {
-      const storage = getStorage(app);
-      const upload = () => {
+      if (typeof document !== "undefined") {
+        const storage = getStorage(app);
+        const upload = () => {
         const name = new Date().getTime() + file.name;
         const storageRef = ref(storage, name);
 
         const uploadTask = uploadBytesResumable(storageRef, file);
-
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            const progress =
+        
+        // if (typeof document !== "undefined") {
+          uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+              const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log("Upload is " + progress + "% done");
-            switch (snapshot.state) {
-              case "paused":
-                console.log("Upload is paused");
-                break;
-              case "running":
-                console.log("Upload is running");
-                break;
+              console.log("Upload is " + progress + "% done");
+              switch (snapshot.state) {
+                case "paused":
+                  console.log("Upload is paused");
+                  break;
+                  case "running":
+                    console.log("Upload is running");
+                    break;
+                  }
+                },
+                // (error) => {},
+            () => {
+              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                setMedia(downloadURL);
+              });
             }
-          },
-          // (error) => {},
-          () => {
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-              setMedia(downloadURL);
-            });
+            );
           }
-        );
-      };
-
-      file && upload();
-    }
+        // };
+        
+        file && upload();
+      }
   }, [file]);
 
   if (status === "loading") {
@@ -69,7 +66,8 @@ const WritePage = () => {
 
   if (status === "unauthenticated") {
     if (typeof document !== "undefined") {
-    router.push("/");}
+      router.push("/");
+    }
   }
 
   const slugify = (str) =>
@@ -81,20 +79,24 @@ const WritePage = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    const res = await fetch("/api/posts", {
-      method: "POST",
-      body: JSON.stringify({
-        title,
-        desc: value,
-        img: media,
-        slug: slugify(title),
-        catSlug: catSlug || "style", //If not selected, choose the general category
-      }),
-    });
+    if (typeof document !== "undefined") {
+      const res = await fetch("/api/posts", {
+        method: "POST",
+        body: JSON.stringify({
+          title,
+          desc: value,
+          img: media,
+          slug: slugify(title),
+          catSlug: catSlug || "style", //If not selected, choose the general category
+        }),
+      });
+    }
 
     if (res.status === 200) {
-      const data = await res.json();
+      if (typeof document !== "undefined") {
+        const data = await res.json();
       router.push(`/posts/${data.slug}`);
+      }
     }
   };
 
