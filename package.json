@@ -26,10 +26,6 @@
     "react-icons": "^4.11.0",
     "react-quill": "^2.0.0",
     "react-slick": "^0.29.0",
-    "slate": "^0.94.1",
-    "slate-plain-serializer": "^0.7.13",
-    "slate-react": "^0.99.0",
-    "slick-carousel": "^1.8.1",
     "swr": "^2.2.4"
   },
   "devDependencies": {

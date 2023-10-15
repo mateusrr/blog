@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Card = ({key, item}) => {
     return (
-        <div className={styles.container} key={key}>
+        <div className={styles.container}>
             {item.img && (
                 <div className={styles.imageContainer}>
                     <Image src={item.img} alt="" fill className={styles.image} />
