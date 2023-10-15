@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
-import { useRouter } from "next/router"; // Troque "next/navigation" para "next/router"
+import { useRouter } from "next/navigation"; // Troque "next/navigation" para "next/router"
 import { useSession } from "next-auth/react";
 import {
   getStorage,
@@ -80,6 +80,7 @@ const WritePage = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
+    if (typeof document !== "undefined") {
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -89,7 +90,7 @@ const WritePage = () => {
         slug: slugify(title),
         catSlug: catSlug || "style", //If not selected, choose the general category
       }),
-    });
+    });}
 
     if (res.status === 200) {
       const data = await res.json();
