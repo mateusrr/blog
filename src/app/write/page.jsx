@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router"; // Troque "next/navigation" para "next/router"
 import { useSession } from "next-auth/react";
 import {
   getStorage,
@@ -17,7 +17,7 @@ import ReactQuill from "react-quill";
 
 const WritePage = () => {
   const { status } = useSession();
-  const router = useRouter();
+  const router = useRouter;
 
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
