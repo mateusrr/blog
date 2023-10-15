@@ -68,7 +68,8 @@ const WritePage = () => {
   }
 
   if (status === "unauthenticated") {
-    router.push("/");
+    if (typeof document !== "undefined") {
+    router.push("/");}
   }
 
   const slugify = (str) =>
@@ -80,7 +81,6 @@ const WritePage = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    if (typeof document !== "undefined") {
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -90,13 +90,14 @@ const WritePage = () => {
         slug: slugify(title),
         catSlug: catSlug || "style", //If not selected, choose the general category
       }),
-    });}
+    });
 
     if (res.status === 200) {
       const data = await res.json();
       router.push(`/posts/${data.slug}`);
     }
   };
+
 
   return (
     <div className={styles.container}>
