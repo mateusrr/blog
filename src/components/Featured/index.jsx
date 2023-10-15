@@ -2,25 +2,27 @@ import React from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 
-const Featured = () => {
+const Featured = async () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
-        <b>Hey, welcome!</b> Discover my stories and creative ideas.
+      Vamos explorar o mundo. <br/>
+      Compartilhe suas experiências!
       </h1>
       <div className={styles.post}>
         <div className={styles.imgContainer}>
-          <Image src="/p1.jpeg" alt="" fill className={styles.image} />
+          <Image src="/booking.jpg" alt="" fill className={styles.image} />
         </div>
         <div className={styles.textContainer}>
-          <h1 className={styles.postTitle}>Lorem ipsum dolor sit amet alim consectetur adipisicing elit.</h1>
+          <h1 className={styles.postTitle}>A curiosidade é o combustível
+          para o crescimento pessoal.</h1>
           <p className={styles.postDesc}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Cupiditate, quam nisi magni ea laborum inventore voluptatum
-            laudantium repellat ducimus unde aspernatur fuga. Quo, accusantium
-            quisquam! Harum unde sit culpa debitis.
+          Nossos escritores são entusiastas apaixonados e especialistas em suas áreas,
+          comprometidos em entregar conteúdo de alta qualidade que seja informativo,
+          envolvente e, acima de tudo, relevante para você. Se você compartilha nossa
+          paixão pela exploração intelectual e está em busca de inspiração, conhecimento
+          e diversão, este blog é o seu destino.
           </p>
-          <button className={styles.button}>Read More</button>
         </div>
       </div>
     </div>

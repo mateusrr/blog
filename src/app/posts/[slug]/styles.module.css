@@ -49,6 +49,7 @@
 }
 
 .image {
+  border-radius: 20px;
   object-fit: cover;
 }
 
