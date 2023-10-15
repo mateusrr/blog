@@ -4,7 +4,7 @@ import Comments from "@/components/Comments/index";
 
 const getData = async (slug) => {
   if(typeof document !== "undefined") {
-    const res = await fetch(`http://localhost:3000/api/posts/${slug}?popular=true`, {
+    const res = await fetch(`https://the-blog-lake.vercel.app/api/posts/${slug}?popular=true`, {
       cache: "no-store",
   })
 
