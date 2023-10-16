@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
-import { useRouter } from "next/router"; // Troque "next/navigation" por "next/router"
+import { useRouter } from "next/navigation"; // Troque "next/navigation" por "next/router"
 import { useSession } from "next-auth/react";
 import {
   getStorage,
@@ -16,7 +16,7 @@ import {
 import { app } from "@/utils/firebase";
 import ReactQuill from "react-quill";
 
-const DynamicWritePage = dynamic(() => import('/src/app/write'), {
+const DynamicWritePage = dynamic(() => import('/src/app/write/page.jsx'), {
   ssr: false,
 });
 
