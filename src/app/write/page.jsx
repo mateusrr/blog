@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import styles from "./styles.module.css";
+import styles from "./writePage.module.css";
+import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
-import { useRouter } from "next/navigation"; // Corrigido para usar "next/router" em vez de "next/navigation".
+import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import {
   getStorage,
@@ -13,12 +13,9 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import dynamic from "next/dynamic"; // Corrigido a importação de "dynamic".
 import ReactQuill from "react-quill";
 
-const WritePageDy = dynamic(() => import("/src/app/write/page.jsx"), { ssr: false });
-
-function WritePage() {
+const WritePage = () => {
   const { status } = useSession();
   const router = useRouter();
 
@@ -32,38 +29,36 @@ function WritePage() {
   useEffect(() => {
     const storage = getStorage(app);
     const upload = () => {
-      if (file) { // Verifique se há um arquivo para fazer upload.
-        const name = new Date().getTime() + file.name;
-        const storageRef = ref(storage, name);
+      const name = new Date().getTime() + file.name;
+      const storageRef = ref(storage, name);
 
-        const uploadTask = uploadBytesResumable(storageRef, file);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            const progress =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log("Upload is " + progress + "% done");
-            switch (snapshot.state) {
-              case "paused":
-                console.log("Upload is paused");
-                break;
-              case "running":
-                console.log("Upload is running");
-                break;
-            }
-          },
-          (error) => {},
-          () => {
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-              setMedia(downloadURL);
-            });
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+          switch (snapshot.state) {
+            case "paused":
+              console.log("Upload is paused");
+              break;
+            case "running":
+              console.log("Upload is running");
+              break;
           }
-        );
-      }
+        },
+        (error) => {},
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setMedia(downloadURL);
+          });
+        }
+      );
     };
 
-    upload();
+    file && upload();
   }, [file]);
 
   if (status === "loading") {
@@ -90,7 +85,7 @@ function WritePage() {
         desc: value,
         img: media,
         slug: slugify(title),
-        catSlug: catSlug || "style", // If not selected, choose the general category
+        catSlug: catSlug || "style", //If not selected, choose the general category
       }),
     });
 
@@ -108,10 +103,7 @@ function WritePage() {
         className={styles.input}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <select
-        className={styles.select}
-        onChange={(e) => setCatSlug(e.target.value)}
-      >
+      <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
         <option value="style">style</option>
         <option value="fashion">fashion</option>
         <option value="food">food</option>
@@ -155,10 +147,8 @@ function WritePage() {
       <button className={styles.publish} onClick={handleSubmit}>
         Publish
       </button>
-
-      <WritePageDy />
     </div>
   );
-}
+};
 
 export default WritePage;
