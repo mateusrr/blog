@@ -20,7 +20,7 @@ const DynamicWritePage = dynamic(() => import('/src/app/write/page.jsx'), {
   ssr: false,
 });
 
-const WritePage = () => {
+function WritePage() {
   const { status } = useSession();
   const router = useRouter();
 
