@@ -6,10 +6,6 @@ import AuthLinks from "../AuthLinks/index";
 import ThemeToggle from "../ThemeToggle/index";
 import {BsFacebook, BsInstagram, BsYoutube} from "react-icons/bs"
 
-const WritePage = dynamic(() => import('/src/app/write/page.jsx'), {
-  ssr: false 
-  });
-
 const Navbar = () => {
   return (
     <div className={styles.container}>
@@ -24,8 +20,6 @@ const Navbar = () => {
         <Link href="/" className={styles.link}>Início</Link>
         <AuthLinks />
       </div>
-
-      <WritePage />
     </div>
   );
 };

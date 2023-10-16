@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic"
 import Image from "next/image";
 import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
@@ -15,7 +16,11 @@ import {
 import { app } from "@/utils/firebase";
 import ReactQuill from "react-quill";
 
-const WritePage = () => {
+const WritePageDynamic = dynamic(() => import('/src/app/write/page.jsx'), {
+  ssr: false 
+});
+
+function WritePage () {
   const { status } = useSession();
   const router = useRouter();
 
@@ -147,6 +152,8 @@ const WritePage = () => {
       <button className={styles.publish} onClick={handleSubmit}>
         Publish
       </button>
+
+      <WritePageDynamic />
     </div>
   );
 };
