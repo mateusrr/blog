@@ -16,7 +16,7 @@ import {
 import { app } from "@/utils/firebase";
 import ReactQuill from "react-quill";
 
-const DynamicWritePage = dynamic(() => import('/src/app/write/page.jsx'), {
+const DynamicWritePage = dynamic(() => import('/src/app/write'), {
   ssr: false,
 });
 
