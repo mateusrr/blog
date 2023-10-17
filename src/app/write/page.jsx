@@ -1,4 +1,4 @@
-// "use client";
+'use client';
 
 import dynamic from "next/dynamic"
 import Image from "next/image";
@@ -14,10 +14,9 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import ReactQuill from "react-quill";
 
-const WritePageDynamic = dynamic(() => import('/src/app/write/page.jsx'), {
-  ssr: false 
+const ReactQuill = dynamic(() => import('react-quill'), {
+  ssr: false
 });
 
 function WritePage () {
@@ -90,7 +89,7 @@ function WritePage () {
         desc: value,
         img: media,
         slug: slugify(title),
-        catSlug: catSlug || "style",
+        catSlug: catSlug || "style", //If not selected, choose the general category
       }),
     });
 
@@ -152,8 +151,6 @@ function WritePage () {
       <button className={styles.publish} onClick={handleSubmit}>
         Publish
       </button>
-
-      <WritePageDynamic />
     </div>
   );
 };
