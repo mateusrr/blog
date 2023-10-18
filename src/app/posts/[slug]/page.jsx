@@ -1,9 +1,10 @@
 import styles from "./styles.module.css";
 import Image from "next/image";
 import Comments from "@/components/Comments/index";
+import { format } from 'date-fns';
 
 const getData = async (slug) => {
-  const res = await fetch(`https://the-blog-lake.vercel.app/api/posts/${slug}`, {
+  const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
     cache: "no-store",
   });
 
@@ -33,7 +34,7 @@ const SinglePage = async ({ params }) => {
             <div className={styles.userTextContainer}>
               <span className={styles.username}>{data?.user.name}</span>
               <span className={styles.date}>
-                {data ? format(new Date(data?.createdAt), 'dd/MM/yyyy HH:mm:ss') : ''}
+                {data ? format(new Date(data.createdAt), 'dd/MM/yyyy • HH:mm') : ''}
               </span>
             </div>
           </div>
