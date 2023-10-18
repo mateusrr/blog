@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Pagination from "../Pagination/index";
-// import Image from "next/image";
 import Card from "../Card/index";
 
 const getData = async (page, cat) => {
@@ -19,21 +18,48 @@ const getData = async (page, cat) => {
   return res.json();
 };
 
-const CardList = async ({ page, cat }) => {
-  const { posts, count } = await getData(page, cat);
+const CardList = ({ page, cat }) => {
+  const [allPosts, setAllPosts] = useState([]);
+  const [count, setCount] = useState(0);
 
-  const reversedPosts = posts.slice().reverse()
+  useEffect(() => {
+    const fetchAllPosts = async () => {
+      const allPostsData = [];
+      let currentPage = 1;
+      let totalPosts = 0;
+
+      while (true) {
+        const { posts, count } = await getData(currentPage, cat);
+        totalPosts = count;
+
+        if (posts.length === 0) {
+          break;
+        }
+
+        allPostsData.push(...posts);
+        currentPage++;
+      }
+
+      setAllPosts(allPostsData);
+      setCount(totalPosts);
+    };
+
+    fetchAllPosts();
+  }, [cat]);
 
   const POST_PER_PAGE = 2;
+  const startIndex = POST_PER_PAGE * (page - 1);
+  const endIndex = startIndex + POST_PER_PAGE;
+  const pagedPosts = allPosts.slice(startIndex, endIndex);
 
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
-  const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
+  const hasNext = endIndex < count;
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Recent Posts</h1>
       <div className={styles.posts}>
-        {reversedPosts?.map((item) => (
+        {pagedPosts?.map((item) => (
           <Card item={item} key={item._id} />
         ))}
       </div>
