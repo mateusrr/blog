@@ -59,7 +59,7 @@ const CardList = ({ page, cat }) => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Recent Posts</h1>
+      <h1 className={styles.title}>Postagens recentes</h1>
       <div className={styles.posts}>
         {pagedPosts?.map((item) => (
           <Card item={item} key={item._id} />

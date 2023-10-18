@@ -66,7 +66,7 @@ function WritePage () {
   }, [file]);
 
   if (status === "loading") {
-    return <div className={styles.loading}>Loading...</div>;
+    return <div className={styles.loading}>Carregando...</div>;
   }
 
   if (status === "unauthenticated") {
@@ -103,17 +103,17 @@ function WritePage () {
     <div className={styles.container}>
       <input
         type="text"
-        placeholder="Title"
+        placeholder="Título"
         className={styles.input}
         onChange={(e) => setTitle(e.target.value)}
       />
       <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
-        <option value="style">style</option>
-        <option value="fashion">fashion</option>
-        <option value="food">food</option>
-        <option value="culture">culture</option>
-        <option value="travel">travel</option>
-        <option value="coding">coding</option>
+        <option value="style">Gastronomia</option>
+        <option value="fashion">Viagem</option>
+        <option value="food">Esporte</option>
+        <option value="culture">Curiosidades</option>
+        <option value="travel">Leitura</option>
+        <option value="coding">Música</option>
       </select>
       <div className={styles.editor}>
         <button className={styles.button} onClick={() => setOpen(!open)}>
@@ -145,11 +145,11 @@ function WritePage () {
           theme="bubble"
           value={value}
           onChange={setValue}
-          placeholder="Tell your story..."
+          placeholder="Digite..."
         />
       </div>
       <button className={styles.publish} onClick={handleSubmit}>
-        Publish
+        Publicar
       </button>
     </div>
   );
