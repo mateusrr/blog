@@ -1,9 +1,8 @@
-"use client"
-
-import React, { useEffect, useState } from "react";
-import styles from "./styles.module.css";
-import Pagination from "../Pagination/index";
-import Card from "../Card/index";
+import React from "react";
+import styles from "./cardList.module.css";
+import Pagination from "../pagination/Pagination";
+import Image from "next/image";
+import Card from "../card/Card";
 
 const getData = async (page, cat) => {
   const res = await fetch(
@@ -20,48 +19,19 @@ const getData = async (page, cat) => {
   return res.json();
 };
 
-const CardList = ({ page, cat }) => {
-  const [allPosts, setAllPosts] = useState([]);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const fetchAllPosts = async () => {
-      const allPostsData = [];
-      let currentPage = 1;
-      let totalPosts = 0;
-
-      while (true) {
-        const { posts, count } = await getData(currentPage, cat);
-        totalPosts = count;
-
-        if (posts.length === 0) {
-          break;
-        }
-
-        allPostsData.push(...posts);
-        currentPage++;
-      }
-
-      setAllPosts(allPostsData);
-      setCount(totalPosts);
-    };
-
-    fetchAllPosts();
-  }, [cat]);
+const CardList = async ({ page, cat }) => {
+  const { posts, count } = await getData(page, cat);
 
   const POST_PER_PAGE = 2;
-  const startIndex = POST_PER_PAGE * (page - 1);
-  const endIndex = startIndex + POST_PER_PAGE;
-  const pagedPosts = allPosts.slice(startIndex, endIndex);
 
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
-  const hasNext = endIndex < count;
+  const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Postagens recentes</h1>
+      <h1 className={styles.title}>Recent Posts</h1>
       <div className={styles.posts}>
-        {pagedPosts?.map((item) => (
+        {posts?.map((item) => (
           <Card item={item} key={item._id} />
         ))}
       </div>
