@@ -1,13 +1,5 @@
-import dynamic from "next/dynamic";
 import React from "react";
 // import { Quill } from "react-quill";
-// Custom Undo button icon component for Quill editor. You can import it directly
-// from 'quill/assets/icons/undo.svg' but I found that a number of loaders do not
-// handle them correctly
-
-const Quill = dynamic(() => import('quill'), {
-  ssr: false
-});
 
 const CustomUndo = () => (
   <svg viewBox="0 0 18 18">
@@ -39,21 +31,21 @@ function redoChange() {
 }
 
 // Add sizes to whitelist and register them
-const Size = Quill.import("formats/size");
-Size.whitelist = ["extra-small", "small", "medium", "large"];
-Quill.register(Size, true);
+// const Size = Quill.import("formats/size");
+// Size.whitelist = ["extra-small", "small", "medium", "large"];
+// Quill.register(Size, true);
 
 // Add fonts to whitelist and register them
-const Font = Quill.import("formats/font");
-Font.whitelist = [
-  "arial",
-  "comic-sans",
-  "courier-new",
-  "georgia",
-  "helvetica",
-  "lucida"
-];
-Quill.register(Font, true);
+// const Font = Quill.import("formats/font");
+// Font.whitelist = [
+//   "arial",
+//   "comic-sans",
+//   "courier-new",
+//   "georgia",
+//   "helvetica",
+//   "lucida"
+// ];
+// Quill.register(Font, true);
 
 // Modules object for setting up the Quill editor
 export const modules = {
@@ -74,8 +66,8 @@ export const modules = {
 // Formats objects for setting up the Quill editor
 export const formats = [
   "header",
-  "font",
-  "size",
+  // "font",
+  // "size",
   "bold",
   "italic",
   "underline",
@@ -87,8 +79,8 @@ export const formats = [
   "list",
   "bullet",
   "indent",
-  "link",
-  "image",
+  // "link",
+  // "image",
   "color",
   "code-block"
 ];
@@ -105,12 +97,12 @@ export const QuillToolbar = () => (
         <option value="helvetica">Helvetica</option>
         <option value="lucida">Lucida</option>
       </select> */}
-      <select className="ql-size" defaultValue="medium">
+      {/* <select className="ql-size" defaultValue="medium">
         <option value="extra-small">Extra-small</option>
         <option value="small">Small</option>
         <option value="medium">Meidum</option>
         <option value="large">Large</option>
-      </select>
+      </select> */}
       <select className="ql-header" defaultValue="3">
         <option value="1">Heading</option>
         <option value="2">Subheading</option>

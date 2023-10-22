@@ -23,7 +23,7 @@ function WritePage () {
   const { status } = useSession();
   const router = useRouter();
 
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
