@@ -19,7 +19,10 @@ const AuthLinks = () => {
       ) : (
         <>
           <Link href="/write" className={styles.link}>
-            Write
+            Publicar
+          </Link>
+          <Link href="/myposts" className={styles.link}>
+            Minhas publicações
           </Link>
           <span className={styles.link} onClick={signOut}>
             Logout
@@ -38,7 +41,10 @@ const AuthLinks = () => {
             <Link href="/login">Login</Link>
           ) : (
             <>
-              <Link href="/write">Write</Link>
+              <Link href="/write">Publicar</Link>
+              <Link href="/myposts" className={styles.link}>
+                Minhas publicações
+              </Link>
               <span className={styles.link}>Logout</span>
             </>
           )}

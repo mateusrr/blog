@@ -1,0 +1,26 @@
+.container{
+    flex:1;
+    margin-top: 20px;
+  }
+  .containerCard {
+    margin-bottom: 50px;
+   display: flex;
+   align-items: center;
+    gap: 5px;
+    margin: 1px;
+    padding: 5px;
+  }
+  
+  .date {
+    color: rgba(128, 128, 128, 0.534);
+    font-size: 15px;
+  }
+
+  .link {
+    border-bottom: 1px solid crimson;
+  }
+
+  .msg > p {
+    margin-top: 20px;
+    gap: 50px;
+  }

@@ -6,43 +6,26 @@
   
   .select{
     margin-bottom: 50px;
-    padding: 10px 20px;
+    padding: 10px;
     margin-left: 50px;
+    margin-right: 10px;
     width: max-content;
+    background-color: white;
+    color: #000;
+    cursor: pointer;
+    border-radius: 20px;
   }
   
   .editor {
-    display: flex;
     gap: 20px;
-    height: 700px;
+    height: max-content;
     position: relative;
+    margin-bottom: 50px;
   }
-  
-  .button,
-  .addButton {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 1px solid var(--textColor);
-    display: flex;
+
+  .addButton[type="file"] {
+    margin-top: 10px;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  
-  .addButton {
-    border-color: #1a8917;
-  }
-  
-  .add {
-    display: flex;
-    gap: 20px;
-    background-color: var(--bg);
-    position: absolute;
-    z-index: 999;
-    width: 100%;
-    left: 50px;
   }
   
   .input{
@@ -59,7 +42,9 @@
   }
   
   .textArea {
+    margin-top: 50px;
     width: 100%;
+    border: none;
   }
   
   .publish{
@@ -68,8 +53,12 @@
     right: 0px;
     padding: 10px 20px;
     border: none;
-    background-color: #1a8917;
+    background-color: crimson;
     color: white;
     cursor: pointer;
     border-radius: 20px;
   }
+/* 
+  .image {
+    background-color:#000;
+  } */

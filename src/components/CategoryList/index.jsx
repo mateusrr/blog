@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const getData = async () => {
-    const res = await fetch("https://the-blog-lake.vercel.app/api/categories", {
+    const res = await fetch("https://namemoria.vercel.app/api/categories", {
         cache: "no-store",
     })
 
@@ -24,7 +24,7 @@ const CategoryList = async () => {
             <div className={styles.categories}>
                     {data?.map((item) => (
                         <Link 
-                        href="/blog?cat="
+                        href={`/blog?cat=${item.slug}`}
                         className={`${styles.category} ${styles[item.slug]}`}
                         key={item._id}
                     >
@@ -41,6 +41,8 @@ const CategoryList = async () => {
                     </Link>
                     ))}
             </div>
+
+            <h1 className={styles.title}>Publicações</h1>
         </div>
     )
 }

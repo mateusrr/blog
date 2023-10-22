@@ -1,12 +1,12 @@
 'use client';
 
-import dynamic from "next/dynamic"
-import Image from "next/image";
 import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
-import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
+import dynamic from "next/dynamic"
+import "react-quill/dist/quill.snow.css";
+import EditorToolbar, { modules, formats } from "./toolbar"
 import {
   getStorage,
   ref,
@@ -82,14 +82,14 @@ function WritePage () {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    const res = await fetch("/api/posts", {
+    const res = await fetch("https://namemoria.vercel.app/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
         desc: value,
         img: media,
         slug: slugify(title),
-        catSlug: catSlug || "style", //If not selected, choose the general category
+        catSlug: catSlug || "inexiste",
       }),
     });
 
@@ -107,46 +107,34 @@ function WritePage () {
         className={styles.input}
         onChange={(e) => setTitle(e.target.value)}
       />
+      <div className={styles.category}>
       <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
-        <option value="style">Gastronomia</option>
-        <option value="fashion">Viagem</option>
-        <option value="food">Esporte</option>
-        <option value="culture">Curiosidades</option>
-        <option value="travel">Leitura</option>
-        <option value="coding">Música</option>
+        <option value="gastronomia">Gastronomia</option>
+        <option value="viagem">Viagem</option>
+        <option value="esporte">Esporte</option>
+        <option value="curiosidades">Curiosidades</option>
+        <option value="leitura">Leitura</option>
+        <option value="musica">Música</option>
       </select>
-      <div className={styles.editor}>
-        <button className={styles.button} onClick={() => setOpen(!open)}>
-          <Image src="/plus.png" alt="" width={16} height={16} />
-        </button>
-        {open && (
-          <div className={styles.add}>
             <input
+              className={styles.addButton}
               type="file"
               id="image"
+              htmlFor="image"
               onChange={(e) => setFile(e.target.files[0])}
-              style={{ display: "none" }}
             />
-            <button className={styles.addButton}>
-              <label htmlFor="image">
-                <Image src="/image.png" alt="" width={16} height={16} />
-              </label>
-            </button>
-            <button className={styles.addButton}>
-              <Image src="/external.png" alt="" width={16} height={16} />
-            </button>
-            <button className={styles.addButton}>
-              <Image src="/video.png" alt="" width={16} height={16} />
-            </button>
-          </div>
-        )}
-        <ReactQuill
-          className={styles.textArea}
-          theme="bubble"
-          value={value}
-          onChange={setValue}
-          placeholder="Digite..."
-        />
+          
+      </div>
+      <div className={styles.editor}>        
+      <EditorToolbar />
+      <ReactQuill
+        theme="snow"
+        value={value}
+        onChange={setValue}
+        placeholder="Digite..."
+        modules={modules}
+        formats={formats}
+      />
       </div>
       <button className={styles.publish} onClick={handleSubmit}>
         Publicar
