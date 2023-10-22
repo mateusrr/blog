@@ -1,12 +1,11 @@
 'use client';
 
-import styles from "./styles.module.css";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic"
 import "react-quill/dist/quill.snow.css";
 import EditorToolbar, { modules, formats } from "./toolbar"
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 import {
   getStorage,
   ref,
@@ -14,6 +13,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
+import styles from "./styles.module.css";
 
 const ReactQuill = dynamic(() => import('react-quill'), {
   ssr: false
