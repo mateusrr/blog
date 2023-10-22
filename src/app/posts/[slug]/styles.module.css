@@ -65,9 +65,15 @@
 }
 
 .description p {
+<<<<<<< HEAD
   font-size: 22px;
   font-weight: 300;
   margin-bottom: 20px;
+=======
+  font-size: 25px;
+  font-weight: 400;
+/*   margin-bottom: 20px; */
+>>>>>>> 7035a95535931b6bf18fa1259197ce62821437ca
 }
 
 @media screen and (max-width: 1536px) {
