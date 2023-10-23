@@ -1,18 +1,40 @@
 import CardList from "@/components/CardList/index";
 import styles from "./styles.module.css";
+import Card from "@/components/Card";
 
-const BlogPage = ({ searchParams }) => {
-  // const page = parseInt(searchParams.page) || 1;
+const getData = async (cat) => {
+  const res = await fetch(`https://namemoria.vercel.app/api/posts?cat=${cat}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("failed");
+  }
+
+  return res.json();
+};
+
+const BlogPage = async ({ searchParams }) => {
   const { cat } = searchParams;
 
-  return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>{cat}</h1>
-      <div className={styles.content}>
-        <CardList />
+  try {
+    const { posts } = await getData(cat);
+
+    return (
+      <div className={styles.container}>
+        <h1 className={styles.title}>{cat}</h1>
+        <div className={styles.content}>
+          {posts?.map((item) => (
+            <Card item={item} key={item._id} />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Erro ao buscar posts:", error);
+    // Lidar com erros ou exibir uma mensagem de erro na interface do usuário.
+    return <div>Erro ao carregar os posts.</div>;
+  }
 };
 
 export default BlogPage;

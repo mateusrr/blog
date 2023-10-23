@@ -22,27 +22,27 @@
   border-radius: 10px;
 }
 
-.category.Gastronomia {
+.category.gastronomia {
   background-color: #57c4ff31;
 }
 
-.category.Viagem {
+.category.viagem {
   background-color: #da85c731;
 }
 
-.category.Esporte {
+.category.esporte {
   background-color: #7fb88133;
 }
 
-.category.Curiosidades {
+.category.curiosidades {
   background-color: #ff795736;
 }
 
-.category.Leitura {
+.category.leitura {
   background-color: #ffb04f45;
 }
 
-.category.Musica {
+.category.musica {
   background-color: #5e4fff31;
 }
 

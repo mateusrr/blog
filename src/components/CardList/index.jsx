@@ -1,11 +1,10 @@
 import React from "react";
 import styles from "./styles.module.css";
-// import Pagination from "../Pagination/index";
 import Card from "../Card/index";
 
-const getData = async (page, cat) => {
+const getData = async () => {
   const res = await fetch(
-    `https://namemoria.vercel.app/api/posts?page=${page}&cat=${cat || ""}`,
+    "https://namemoria.vercel.app/api/posts",
     {
       cache: "no-store",
     }
@@ -15,16 +14,16 @@ const getData = async (page, cat) => {
     throw new Error("Failed");
   }
 
-  return res.json();
+  const data = await res.json();
+
+  // Reverta a ordem dos posts
+  const reversedPosts = data.posts.reverse();
+
+  return { ...data, posts: reversedPosts };
 };
 
-const CardList = async ({ page, cat }) => {
-  const { posts } = await getData(page, cat);
-
-  // const POST_PER_PAGE = 2;
-
-  // const hasPrev = POST_PER_PAGE * (page - 1) > 0;
-  // const hasNext = POST_PER_PAGE * (page - 25) + POST_PER_PAGE < count;
+const CardList = async () => {
+  const { posts } = await getData();
 
   return (
     <div className={styles.container}>
@@ -33,7 +32,6 @@ const CardList = async ({ page, cat }) => {
           <Card item={item} key={item._id} />
         ))}
       </div>
-      {/* <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} /> */}
     </div>
   );
 };
