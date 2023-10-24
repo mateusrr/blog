@@ -4,6 +4,7 @@ import CardMyPosts from './cardMyPosts';
 import React, { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const MyPosts = () => {
   const { data: session } = useSession(); // Obtém informações de sessão do usuário logado
@@ -45,6 +46,7 @@ const MyPosts = () => {
           ))
         ) : (
           <div className={styles.msg}>
+            <Image src="/nopublish.svg" width={700} height={700} alt='' />
             <h1>Você não possui publicações! 😔</h1>
             <p>
               <Link href="/write" className={styles.link}>

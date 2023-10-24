@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const Featured = async () => {
   return (
@@ -19,14 +20,19 @@ const Featured = async () => {
           <br/>por meio das experiências de vida. <br/>Junte-se a nós para eternizar momentos
           especiais e conectar-se <br/>com outras pessoas que compartilham vivências similares.
           </p> */}
-          <p>Faça o login e comece a publicar.</p>
+          <div className={styles.log}>
+            <button className={styles.login}>
+              <Link href="/login">Faça o login</Link>
+            </button>
+            <p>e comece a publicar.</p>
+          </div>
         </div>
         <div className={styles.imgContainer}>
           <Image src="/booking.jpg" alt="" fill className={styles.image} />
         </div>
       </div>
     </div>
-  );
+  );w
 };
 
 export default Featured;
