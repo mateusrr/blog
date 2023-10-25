@@ -22,7 +22,7 @@ const Featured = async () => {
           </p> */}
           <div className={styles.log}>
             <button className={styles.login}>
-              <Link href="/login">Faça o login</Link>
+              <Link href="/login">Faça login</Link>
             </button>
             <p>e comece a publicar.</p>
           </div>

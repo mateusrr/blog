@@ -22,7 +22,8 @@
   }
   
   .image {
-    border-radius: 20px;
+    /* border-radius: 5px; */
+    border: 1px solid #fff;
     object-fit: cover;
   }
   
@@ -62,7 +63,7 @@
     font-size: 20px;
     padding: 10px 20px;
     border: none;
-    background-color: #dc143c;
+    background-color: rgb(240, 138, 6);
     color: white;
     cursor: pointer;
     border-radius: 20px;

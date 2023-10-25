@@ -33,6 +33,16 @@
     font-size: 36px;
     z-index: 999;
   }
+
+  .login {
+    cursor: pointer;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: 500;
+    background-color: rgb(240, 138, 6);
+    color: #fff;
+  }
   
   @media screen and (max-width: 640px) {
     .burger {

@@ -14,7 +14,8 @@
   
   .image {
     object-fit: cover;
-    border-radius: 10px;
+    border: 1.5px solid #fff;
+    /* border-radius: 5px; */
   }
   
   .textContainer {
@@ -28,10 +29,11 @@
   
   .date {
     color: gray;
+    font-size: 15px;
   }
   
   .category {
-    color: crimson;
+    color: rgb(240, 138, 6);
     font-weight: 500;
   }
   
@@ -42,7 +44,7 @@
   }
   
   .link {
-    border-bottom: 1px solid crimson;
+    border-bottom: 1px solid rgb(240, 138, 6);
     width: max-content;
     padding: 2px 0px;
   }

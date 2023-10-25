@@ -1,7 +1,7 @@
 :root {
     --bg: white;
     --textColor: black;
-    --softBg: #f0f0f0;
+    --softBg: #ffffff;
     --softTextColor: #626262;
   }
   
@@ -23,7 +23,7 @@
   
   .dark {
     --bg: #0f172a;
-    --textColor: #ddd;
+    --textColor: #ffffff;
     --softBg: #1f273a;
     --softTextColor: #a6a6a6;
   }
