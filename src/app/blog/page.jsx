@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import Card from "@/components/Card";
 
 const getData = async (cat) => {
-  const res = await fetch(`http://localhost:3000/api/posts?cat=${cat}`, {
+  const res = await fetch(`https://namemoria.vercel.app/api/posts?cat=${cat}`, {
     cache: "no-store",
   });
 
