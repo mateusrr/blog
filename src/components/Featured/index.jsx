@@ -1,9 +1,14 @@
+"use client"
+
 import React from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
-const Featured = async () => {
+const Featured = () => {
+  const { status } = useSession();
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
@@ -21,10 +26,22 @@ const Featured = async () => {
           especiais e conectar-se <br/>com outras pessoas que compartilham vivências similares.
           </p> */}
           <div className={styles.log}>
+          <>
+            {status === "unauthenticated" ? (
+            <>
             <button className={styles.login}>
               <Link href="/login">Faça login</Link>
             </button>
             <p>e comece a publicar.</p>
+            </>
+            ) : (
+            <>
+              <Link href="/write" className={styles.link}>
+                Comece a publicar
+              </Link>
+            </>
+            )}
+          </>
           </div>
         </div>
         <div className={styles.imgContainer}>
