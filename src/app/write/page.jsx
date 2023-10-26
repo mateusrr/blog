@@ -82,7 +82,7 @@ function WritePage () {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    const res = await fetch("http://localhost:3000/api/posts", {
+    const res = await fetch("https://namemoria.vercel.app/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
