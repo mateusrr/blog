@@ -17,6 +17,7 @@
     cursor: pointer;
     border-radius: 20px;
   }
+
   .title {
     font-size: 70px;
     font-weight: 300;
@@ -50,11 +51,11 @@
   }
   
   .postTitle {
-    font-size: 60px;
+    font-size: 80px;
   }
   
   .postDesc {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 300;
     color: var(--softTextColor);
   }
@@ -78,7 +79,7 @@
     font-size: 20px;
     padding: 10px 20px;
     border: none;
-    background-color: rgb(240, 138, 6);
+    background-color: #f08a06;
     color: white;
     cursor: pointer;
     border-radius: 20px;
@@ -93,6 +94,12 @@
   @media screen and (max-width: 1024px) {
     .title {
       font-size: 64px;
+    }
+    .postTitle {
+      font-size: 35px;
+    }
+    .post {
+      margin-top: 50px;
     }
   
     .imgContainer {
@@ -109,5 +116,14 @@
   @media screen and (max-width: 640px) {
     .title {
       font-size: 36px;
+    }
+    .postTitle {
+      font-size: 27px;
+    }
+    .link{
+      font-size: 17px;
+    }
+    .login{
+      font-size: 17px;
     }
   }
