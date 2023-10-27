@@ -11,11 +11,11 @@ const Featured = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>
-      {/* Vamos explorar o mundo. <br/> */}
-      {/* Compartilhe suas memórias! */}
+      {/* <h1 className={styles.title}>
+      Vamos explorar o mundo.
+       Compartilhe suas memórias!
       Conecte-se com histórias inspiradoras
-      </h1>
+      </h1> */}
       <div className={styles.post}>
         <div className={styles.textContainer}>
           <h1 className={styles.postTitle}>Compartilhe suas memórias!</h1>
@@ -24,7 +24,7 @@ const Featured = () => {
           e valorizada, criando uma comunidade de conexão e inspiração
           <br/>por meio das experiências de vida. */}
           Junte-se a nós para eternizar momentos
-          especiais e conectar-se com outras pessoas que compartilham vivências similares.
+          especiais e conectar-se <br/>com outras pessoas que compartilham vivências similares.
           </p>
           <div className={styles.log}>
           <>
@@ -46,7 +46,7 @@ const Featured = () => {
           </div>
         </div>
         <div className={styles.imgContainer}>
-          <Image src="/booking.jpg" alt="" fill className={styles.image} />
+          <Image src="/people1.png" alt="" fill className={styles.image} />
         </div>
       </div>
     </div>

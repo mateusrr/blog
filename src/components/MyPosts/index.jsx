@@ -46,7 +46,7 @@ const MyPosts = () => {
           ))
         ) : (
           <div className={styles.msg}>
-            <Image src="/nopublish.svg" width={700} height={700} alt='' />
+            <Image src="/data1.png" alt='' height={500} width={700} />
             <h1>Você não possui publicações! 😔</h1>
             <p>
               <Link href="/write" className={styles.link}>
