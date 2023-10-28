@@ -46,7 +46,7 @@ const MyPosts = () => {
           ))
         ) : (
           <div className={styles.msg}>
-            <Image src="/data1.png" alt='' height={500} width={700} />
+            <Image src="/data1.png" alt='' height={500} width={700} className={styles.image} />
             <h1>Você não possui publicações! 😔</h1>
             <p>
               <Link href="/write" className={styles.link}>

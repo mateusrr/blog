@@ -42,10 +42,10 @@ const AuthLinks = () => {
           ) : (
             <>
               <Link href="/write">Publicar</Link>
-              <Link href="/myposts" className={styles.link}>
+              <Link href="/myposts">
                 Minhas publicações
               </Link>
-              <span className={styles.link}>Logout</span>
+              <span>Logout</span>
             </>
           )}
         </div>

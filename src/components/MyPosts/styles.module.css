@@ -1,7 +1,8 @@
 .container{
-    flex:1;
+    flex: 1;
     margin-top: 20px;
   }
+  
   .containerCard {
     margin-bottom: 50px;
    display: flex;
@@ -27,11 +28,76 @@
     margin-top: 30px;
   }
 
+  /* .image {
+    height: 500px;
+    width: 700px;
+  } */
+
   .msg > h1 {
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin: 30px 0 10px 0;
   }
 
   .msg > p {
     font-size: 20px;
+  }
+  
+  @media screen and (max-width: 1366px) {
+    .image {
+      height: 400px;
+      width: 550px;
+    }
+    .msg > h1 {
+      margin: 10px 0 5px 0;
+      /* margin-top: 10px; */
+      font-size: 30px;
+    }
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .image {
+      height: 300px;
+      width: 450px;
+    }
+    .msg > h1 {
+      margin: 15px 0 8px 0;
+      font-size: 24px;
+    }
+  
+    .msg > p {
+      font-size: 17px;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    .image {
+      height: 200px;
+      width: 300px;
+    }
+    .msg > h1 {
+      margin: 15px 0 8px 0;
+      font-size: 17px;
+    }
+  
+    .msg > p {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+    .image {
+      height: 150px;
+      width: 250px;
+    }
+    .msg > h1 {
+      margin: 15px 0 5px 0;
+      font-size: 14px;
+    }
+  
+    .msg > p {
+      font-size: 10px;
+    }
   }

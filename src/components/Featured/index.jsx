@@ -24,7 +24,7 @@ const Featured = () => {
           e valorizada, criando uma comunidade de conexão e inspiração
           <br/>por meio das experiências de vida. */}
           Junte-se a nós para eternizar momentos
-          especiais e conectar-se <br/>com outras pessoas que compartilham vivências similares.
+          especiais e conectar-se com outras pessoas que compartilham vivências similares.
           </p>
           <div className={styles.log}>
           <>
@@ -50,7 +50,7 @@ const Featured = () => {
         </div>
       </div>
     </div>
-  );w
+  );
 };
 
 export default Featured;
