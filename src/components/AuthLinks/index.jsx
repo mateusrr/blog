@@ -45,7 +45,7 @@ const AuthLinks = () => {
               <Link href="/myposts">
                 Minhas publicações
               </Link>
-              <span>Logout</span>
+              <span onClick={signOut}>Logout</span>
             </>
           )}
         </div>
