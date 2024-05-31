@@ -1,4 +1,6 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Card from "../Card/index";
 
@@ -11,24 +13,35 @@ const getData = async () => {
   );
 
   if (!res.ok) {
-    throw new Error("Failed");
+    throw new Error("Failed to fetch data");
   }
 
   const data = await res.json();
-
-  // Reverta a ordem dos posts
   const reversedPosts = data.posts.reverse();
 
   return { ...data, posts: reversedPosts };
 };
 
-const CardList = async () => {
-  const { posts } = await getData();
+const CardList = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { posts } = await getData();
+        setPosts(posts);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className={styles.container}>
       <div className={styles.posts}>
-        {posts?.map((item) => (
+        {posts.map((item) => (
           <Card item={item} key={item._id} />
         ))}
       </div>
