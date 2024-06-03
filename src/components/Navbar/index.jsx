@@ -14,7 +14,11 @@ const Navbar = () => {
         <Link href="https://instagram.com/"><BsInstagram/></Link>
         <Link href="https://youtube.com"><BsYoutube/></Link>
       </div> */}
-      <div className={styles.logo}>na memória<span className={styles.ponto}>.</span></div>
+      <div className={styles.logo}>
+        <Link href="/">
+          na memória<span className={styles.ponto}>.</span>
+        </Link>
+      </div>
       <div className={styles.links}>
         <ThemeToggle />
         <Link href="/" className={styles.link}>Início</Link>
