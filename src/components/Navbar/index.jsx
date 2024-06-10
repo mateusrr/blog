@@ -9,11 +9,6 @@ import {BsFacebook, BsInstagram, BsYoutube} from "react-icons/bs"
 const Navbar = () => {
   return (
     <div className={styles.container}>
-      {/* <div className={styles.social}>
-        <Link href="https://www.facebook.com"><BsFacebook/></Link>
-        <Link href="https://instagram.com/"><BsInstagram/></Link>
-        <Link href="https://youtube.com"><BsYoutube/></Link>
-      </div> */}
       <div className={styles.logo}>
         <Link href="/">
           na memória<span className={styles.ponto}>.</span>

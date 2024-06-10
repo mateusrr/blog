@@ -12,6 +12,8 @@ const CardMyPosts = ({ item }) => {
             <Link href={`/posts/${item.slug}`}>
                 {item.title}
             </Link>
+
+            <Link href={`/edit/${item.slug}`} className={styles.link}>Editar</Link>
         </div>
     );
 }

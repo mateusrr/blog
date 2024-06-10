@@ -7,10 +7,6 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.info}>
-        {/* <div className={styles.logo}>
-          <Image src="/logo.png" alt="lama blog" width={50} height={50} />
-          <h1 className={styles.logoText}>Na memória.</h1>
-        </div> */}
         <div className={styles.text}>
           <p>
             ©️ MRR, 2023. Direitos reservados.

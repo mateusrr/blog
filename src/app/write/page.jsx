@@ -123,6 +123,14 @@ function WritePage () {
               htmlFor="image"
               onChange={(e) => setFile(e.target.files[0])}
             />
+            <label for="image" className={styles.customButton}>Escolher imagem</label>
+            <input 
+              className={styles.addButton}
+              type="file"
+              id="image"
+              htmlFor="image"
+              // name="file"
+              onChange={(e) => setFile(e.target.files[0])} />
           
       </div>
       <div className={styles.editor}>        

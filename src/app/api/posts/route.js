@@ -4,13 +4,9 @@ import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
     const { searchParams } = new URL(req.url);
-    const page = searchParams.get("page") || 1; // Define 1 como valor padrão se 'page' não for fornecido
     const cat = searchParams.get("cat");
-    // const POST_PER_PAGE = 1000;
 
     const query = {
-        // take: POST_PER_PAGE,
-        // skip: POST_PER_PAGE * (page - 1),
         where: {
             ...(cat && { catSlug: cat }),
         }

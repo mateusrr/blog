@@ -11,18 +11,10 @@ const Featured = () => {
 
   return (
     <div className={styles.container}>
-      {/* <h1 className={styles.title}>
-      Vamos explorar o mundo.
-       Compartilhe suas memórias!
-      Conecte-se com histórias inspiradoras
-      </h1> */}
       <div className={styles.post}>
         <div className={styles.textContainer}>
           <h1 className={styles.postTitle}>Compartilhe suas memórias!</h1>
           <p className={styles.postDesc}>
-          {/* Que cada história, seja inspiradora, engraçada, emocionante
-          e valorizada, criando uma comunidade de conexão e inspiração
-          <br/>por meio das experiências de vida. */}
           Junte-se a nós para eternizar momentos
           especiais e conectar-se com outras pessoas que compartilham vivências similares.
           </p>
