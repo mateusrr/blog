@@ -31,7 +31,7 @@
   /* .addButton[type="file"] {
     display: none;
   } */
-  .customButton {
+  /* .customButton {
     font-size: 15px;
     padding: 10px 10px;
     border: none;
@@ -40,7 +40,7 @@
     cursor: pointer;
     border-radius: 20px;
     margin-left: 20px;
-  }
+  } */
 
   .input{
     padding: 50px 0px 50px;
