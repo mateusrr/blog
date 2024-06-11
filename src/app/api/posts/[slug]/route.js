@@ -9,7 +9,10 @@ export const GET = async (req, { params }) => {
     const post = await prisma.post.update({
       where: { slug },
       data: { views: { increment: 1 } },
-      include: { user: true },
+      include: { 
+        user: true,
+        cat: true
+      },
     });
 
     return new NextResponse(JSON.stringify(post, { status: 200 }));
@@ -35,6 +38,7 @@ export const PUT = async (req, { params }) => {
         img,
         catSlug,
       },
+      include: { cat: true },
     });
 
     return new NextResponse(JSON.stringify(updatedPost), { status: 200 });

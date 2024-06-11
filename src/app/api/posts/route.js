@@ -9,6 +9,9 @@ export const GET = async (req) => {
     const query = {
         where: {
             ...(cat && { catSlug: cat }),
+        },
+        include: {
+            cat: true,
         }
     }
 
@@ -23,7 +26,8 @@ export const GET = async (req) => {
             JSON.stringify(
                 { posts, count },
                 { status: 200 }
-            ))
+            )
+        )
     } catch (e) {
         console.log(e);
         return new NextResponse(
@@ -48,6 +52,7 @@ export const POST = async (req) => {
         const body = await req.json()
         const post = await prisma.post.create({
             data: { ...body, userEmail: session.user.email },
+            include: { cat: true },
         })
 
         return new NextResponse(JSON.stringify(post, { status: 200 }))
