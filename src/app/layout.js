@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <head>
-      <script async src={process.env.NEXT_PUBLIC_ADSENSE_SCRIPT_SRC}
+      <script async src={process.env.NEXT_ADSENSE_SCRIPT_SRC}
       crossorigin="anonymous"></script>
     </head>
       <body className={inter.className}>
