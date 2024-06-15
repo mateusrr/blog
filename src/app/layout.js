@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <head>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5562188841194106"
+      <script async src={process.env.NEXT_PUBLIC_ADSENSE_SCRIPT_SRC}
       crossorigin="anonymous"></script>
     </head>
       <body className={inter.className}>
