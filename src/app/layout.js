@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
                 <div className="wrapper">
                   <Navbar />
                   {children}
+                </div>
                   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5562188841194106"
                   crossorigin="anonymous"></script>
                   {/* Bloco1 */}
@@ -39,7 +40,6 @@ export default function RootLayout({ children }) {
                   <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
                   </script>
-                </div>
               </div>
             </ThemeProvider>
           </ThemeContextProvider>
