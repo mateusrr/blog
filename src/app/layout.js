@@ -27,12 +27,11 @@ export default function RootLayout({ children }) {
                 <div className="wrapper">
                   <Navbar />
                   {children}
-                </div>
                   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5562188841194106"
                   crossorigin="anonymous"></script>
                   {/* Bloco1 */}
-                  <ins class="adsbygoogle"
-                    style="display:block"
+                  <ins className="adsbygoogle"
+                    style={{display:'block'}}
                     data-ad-client="ca-pub-5562188841194106"
                     data-ad-slot="5786915546"
                     data-ad-format="auto"
@@ -40,6 +39,7 @@ export default function RootLayout({ children }) {
                   <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
                   </script>
+                </div>
               </div>
             </ThemeProvider>
           </ThemeContextProvider>
