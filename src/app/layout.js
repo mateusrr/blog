@@ -16,8 +16,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5562188841194106"
-     crossorigin="anonymous" />
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5562188841194106"
+      crossorigin="anonymous"></script>
+      {/* Bloco1 */}
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-5562188841194106"
+        data-ad-slot="5786915546"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </head>
       <body className={inter.className}>
         <AuthProvider>
