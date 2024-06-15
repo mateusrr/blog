@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 import ThemeProvider from "@/providers/ThemeProvider";
 import AuthProvider from "@/providers/AuthProvider";
+import AdSense from "@/utils/adsense";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,18 +28,7 @@ export default function RootLayout({ children }) {
                 <div className="wrapper">
                   <Navbar />
                   {children}
-                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5562188841194106"
-                  crossorigin="anonymous"></script>
-                  {/* Bloco1 */}
-                  <ins className="adsbygoogle"
-                    style={{display:'block'}}
-                    data-ad-client="ca-pub-5562188841194106"
-                    data-ad-slot="5786915546"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                  <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                  </script>
+                  <AdSense />
                 </div>
               </div>
             </ThemeProvider>
