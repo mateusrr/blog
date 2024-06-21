@@ -10,6 +10,7 @@ Este é um projeto pessoal que consiste em um blog onde os usuários podem compa
 - **Comentários**: Os leitores podem interagir com as publicações através de comentários.
 - **Login**: É necessário fazer login para publicar e comentar.
 - **Minhas Publicações**: Os usuários logados têm acesso a uma página exclusiva chamada "Minhas Publicações". Nessa página, apenas as postagens feitas pelo usuário logado são exibidas, garantindo privacidade e individualidade.
+- **<i>Nova atualização</i> - Edição**: Recentemente atualizado com uma nova funcionalidade de edição dos posts já criados pelo usuário que o criou.
 
 ## Tecnologias Utilizadas
 
